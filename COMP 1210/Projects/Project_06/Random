@@ -1,0 +1,65 @@
+int index = 0;
+      IceCreamCone iceCreamConeObject = new IceCreamCone("", 0, 0);
+      while (index < iceCreamConeObjList.size())
+      {
+         iceCreamConeObject = iceCreamConeObjList.get(index);
+         if (iceCreamConeObject.getLabel().compareToIgnoreCase(label) != 0)
+         {
+            index++;
+         } 
+         else 
+         {
+            break;  
+         }
+      }
+      if (iceCreamConeObject.getLabel().compareToIgnoreCase(label) != 0)
+      {
+         return false;
+      }
+      iceCreamConeObject.setRadius(radius);
+      iceCreamConeObject.setHeight(height);
+      return true;
+                        
+                        
+                        
+      
+      /**IceCreamCone result = null;
+      int index = -1;
+      
+      for (IceCreamCone iceCreamConeObject : iceCreamConeObjList) {
+         if (iceCreamConeObject.getLabel().equals(labelIn)) {
+            index = iceCreamConeObjList.indexOf(iceCreamConeObject);
+            break;
+         }
+      
+      }
+      
+      if (index >= 0) {
+         result = iceCreamConeObjList.get(index);
+         result.setRadius(radius);
+         result.setHeight(height);
+         return true;
+      
+      }
+      
+      return false;
+   }
+      
+   }**/
+   
+   
+    /**
+      boolean result = false;
+      for (IceCreamCone iceCreamConeObject : iceCreamConeObjList) {
+         if (iceCreamConeObject.getLabel().equals(labelIn)) {
+            iceCreamConeObject.setRadius(radiusIn);
+            iceCreamConeObject.setHeight(heightIn);
+            result = true;
+            break;
+            
+         }
+            
+      }
+      
+      return result;
+      **/
