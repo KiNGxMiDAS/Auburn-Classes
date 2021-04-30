@@ -1,123 +1,70 @@
-# Autocomplete
+# Implementing Collections - LinkedSet
 
-## Overview and Context
-Autocomplete, or predictive [text, is now a common feature in software applications including search [engines, messaging apps, source code editors and more. Its more aggressive [cousin autocorrect can be extremely frustrating and [sometimes funny. But when done well, providing predicted [completions to something currently being typed can be helpful and can make [the task go faster.
+## Problem Overview
+This assignment requires you to implement a set collection using a doubly-linked list as the underlying data structure. You are provided with the Set interface and a shell of the LinkedSet implementing class. You must not change anything in the Set interface, but you must create correct implementations of the methods in the LinkedSet class. In doing so you are allowed to add any number of private methods and nested classes that you need, but you may not create or use any other top-level class and you may not create any public method. You must also use without modification the existing fields of the LinkedSet class.
 
-We’re probably all familiar with how autocomplete works: As a user types, the software predicts the most likely completions of what the user is typing and offers these as selectable options. This works best when the set of possible completions is constrained and there is a clear basis for making predictions of which are most likely. For example, when a user types myString., a source code editor that offers code completion can confidently offer a set of method signatures as possible completions based on the methods available for the object’s type. Deciding which method is most likely is a different matter, but we could guess at how that might be done. Similarly, when a user types “See you “, a messaging app could offer completion options such as “later” and “soon”, perhaps based on a history of past messages the user has typed.
+The Set interface is generic and makes no restrictions on the type that it can contain. The LinkedSet class is also generic, but it does make a restriction on the type variable: Any type bound by a client to T must be a class that implements the Comparable interface for that type. Thus, there is a natural order on the values stored in an LinkedSet, but not (necessarily) on those stored in another class that implements the Set interface. This is an important distinction, so pause here long enough to make sure you understand this point.
 
-An autocomplete application not only has to provide useful and accurate predictions, but it has to do so quickly. If making predictions is too slow or if its operation in any way slows down the actual task being performed, autocomplete becomes a liability that would quickly be disabled by the user. User experience studies suggest that response and rendering of interactive results must be done within a 50ms to 0.1 second timeframe. For an autocomplete application to scale up while meeting that hard time constraint, the underlying algorithms will have to have low-order time complexity.
+The following sections describe each method to be implemented, organized according to the methods appearing in the Set interface and those specific to the LinkedSet class. Each method’s behavior is described below and in comments in the provided source code. You must read both. Note that in addition to correctness, your code must meet the stated performance requirements.
 
-The importance of both correctness (making useful predictions) and efficiency (making predictions very quickly) is demonstrated at scale in the autocomplete applications used by search engines like Google Search. Google Search must compute and render meaningful predictions with each keystroke for billions of searches each day. Now that’s scalability.
+## General Collection Methods of the Set Interface
+These methods correspond to the general methods that would be supported by most any type of collection, but some have behavior specific to a set.
 
-So how would an autocomplete application actually work? Well, that’s exactly what this assignment will help us to figure out.
+add(T element)
+The add method ensures that this set contains the specified element. Neither duplicates nor null values are allowed. The method returns true if this set was modified (i.e., the element was added) and false otherwise. Note that the constraint on the generic type parameter T of the LinkedSet class ensures that there is a natural order on the values stored in an LinkedSet. You must maintain the internal doubly-linked list in ascending natural order at all times. The time complexity of the add method must be O(N), where N is the number of elements in the set.
 
-## Problem Description
-You must develop the components of an autocomplete application. To keep things simple, we will assume that our autocomplete application will work in the context of something like a search engine. Autocomplete will take in a string (we’ll call it a prefix) and will output a list of likely completions (we’ll call each a query). So, a user could type a portion of a query and autocomplete would offer a list of predictions of the completed query that the user intends to complete. The strings can contain any Unicode character except newline.
+Note that one element being a duplicate of another means that the two elements are equal. Since duplicates are not allowed to be added to any implementing class of the Set interface, this is an example of why it’s important for the equals method and the compareTo method of a class to be consistent.
 
-Our autocomplete application can only work in one context at a time. For example, if we want to let users search for movie titles, we would have to load needed movie title data first. Once loaded, autocomplete can predict possible full movie titles based on a given prefix. Likewise, if we want to provide word completion similar to messaging apps, our autocomplete application would have to load needed word data first. Once loaded, autocomplete can predict possible whole words based on a given prefix.
+remove(T element)
+The remove method ensures that this set does not contain the specified element. The method returns true if this set was modified (i.e., an existing element was removed) and false otherwise. The remove method must maintain the ascending natural order of the doubly-linked list. The time complexity of the remove method must be O(N), where N is the number of elements in the set.
 
-The data that the autocomplete application needs will be a set of (query, weight) pairs that represent all possible completions. Each query will be a complete search query (like a complete movie title) that a user might want to search for. Each weight will be a non-negative integer that is a distinguishing attribute of the query that will be used for the purposes of ranking queries: The larger the weight, the more “likely” the query. For example, in a word-based autocomplete for a messaging app the individual queries would be words, and weights would be the frequency of occurrence; thus making more frequently used words the more likely predictions of autocomplete.
+contains(T element)
+The contains method searches for the specified element in this set, returning true if the element is in this set and false otherwise. The time complexity of the contains method must be O(N), where N is the number of elements in the set.
 
-Here are the first few lines of a data source of English words.
+size()
+The size method returns the number of elements in this set. This method is provided for you and must not be changed. The time complexity of the size method is O(1).
 
-the     23135851162
-of      13151942776
-and     12997637966
-to      12136980858
-a       9081174698
-in      8469404971
-for     5933321709
-is      4705743816
-on      3750423199
-that    3400031103
+isEmpty()
+The isEmpty method returns true if there are no elements in this set and false otherwise. This method is provided for you and must not be changed. The time complexity of the isEmpty method is O(1). Any set for which isEmpty() returns true is considered the “empty set” (∅) for purposes of union, intersection, and complement described below.
 
-Each line consists of a word (query) and an integer (weight). The integer records the total number of occurrences of the associated word in some large corpus of English text. Note the data is arranged in descending order of weight. This data shows that “the” is the most frequently occurring English word, appearing over 23 billion times in the corpus from which the data was drawn. So, if “t” is the prefix, the autocomplete should return “the”, “to”, and “that” - in that order - as the first three predicted completions.
+iterator()
+The iterator method returns an Iterator over the elements in this set. Although the interface specifies that no particular order can be assumed (by a client), the LinkedSet implementation must ensure that the resulting iterator returns the elements in ascending natural order. The associated performance constraints are as follows: iterator(): O(1); hasNext(): O(1); next(): O(1); required space: O(1).
 
-## Solution Approach and Framework
-We will develop our autocomplete application in terms of three classes: Term, BinarySearch, and Autocomplete.
+## Set Operator Methods of the Set Interface
+These methods correspond to the basic mathematical set operations. Each method takes a parameter of type Set; that is, an object of some class that implements the Set interface. Since the implementing class is unknown, it may or may not be a LinkedSet. Thus, none of these methods can assume that the parameter set maintains its elements in any particular order.
 
-The Term class
-Term is used to represent a (query, weight) pair. You must write this class so that it is completely consistent with the following API.
+equals(Set<T> s)
+Two sets are equal if and only if they contain exactly the same elements, regardless of order. If A = {1,2,3},B = {3,1,2}, and C = {1,2,3,4}, then A = B and A != C. The equals method returns true if this set is equal to the parameter set, and false otherwise. The time complexity of the equals method must be O(N^2) where N is the size of each set.
 
-public class Term implements Comparable<Term> {
+union(Set<T> s)
+The union of set A with set B, denoted A ∪ B, is defined as {x | x ∈ A or x ∈ B}. Note that A ∪ B = B ∪ A and A ∪ ∅ = A. The union method returns a set that is the union of this set and the parameter set. The result set must be in ascending natural order. The time complexity of the union method must be O(N^2) where N is the size of the larger of the two sets involved.
 
-    /**
-     * Initialize a term with the given query and weight.
-     * This method throws a NullPointerException if query is null,
-     * and an IllegalArgumentException if weight is negative.
-     */
-    public Term(String query, long weight) { }
+intersection(Set<T> s)
+The intersection of set A with set B, denoted A ∩ B, is defined as {x | x ∈ A and x ∈ B}. Note that A ∩ B = B ∩ A and A ∩ ∅ = ∅. The intersection method returns a set that is the intersection of this set and the parameter set. The result set must be in ascending natural order. The time complexity of the intersection method must be O(N^2) where N is the size of the larger of the two sets involved.
 
-    /**
-     * Compares the two terms in descending order of weight.
-     */
-    public static Comparator<Term> byDescendingWeightOrder() { }
+complement(Set<T> s)
+The relative complement of set B with respect to set A, denoted A \ B, is defined as {x | x ∈ A and x ∈/ B}. Note that A \ B != B \ A, A \ ∅ = A, and ∅ \ A = ∅. The complement method returns a set that is the relative complement of the parameter set with respect to this set. The result set must be in ascending natural order. The time complexity of the complement method must be O(N^2) where N is the size of the larger of the two sets involved.
 
-    /**
-     * Compares the two terms in ascending lexicographic order of query,
-     * but using only the first length characters of query. This method
-     * throws an IllegalArgumentException if length is less than or equal
-     * to zero.
-     */
-    public static Comparator<Term> byPrefixOrder(int length) { }
+## Additional Methods of the LinkedSet Class
+In addition to the methods from the Set interface, the LinkedSet class also implements its own class-specific methods. Most of these methods are designed to take advantage of the underlying representation, while some of them simply provide added functionality.
 
-    /**
-     * Compares this term with the other term in ascending lexicographic order
-     * of query.
-     */
-    @Override
-    public int compareTo(Term other) { }
+Constructors
+The only public constructor that is allowed has been provided for you and you must not change it in any way. You may, however, find it helpful to write your own private constructor; one that offers direct support for building an LinkedSet from an existing doubly-linked list. Such a constructor will be helpful but it is not required and will not be graded.
 
-    /**
-     * Returns a string representation of this term in the following format:
-     * query followed by a tab followed by weight
-     */
-    @Override
-    public String toString(){ }
+equals(LinkedSet<T> s)
+The external behavior of this overloaded method is identical to the equals method from the Set interface described above. However, since the parameter is typed as an LinkedSet, this method can directly access the doubly-linked list in this set as well as in the parameter set. Having access to the underlying representation of both sets allows a more efficient algorithm for this method. The time complexity of this equals method must be O(N) where N is the size of this set.
 
-}
-Note that Term supports comparison by three different orders: (1) lexicographic order (the natural order), descending order of weight (one alternate ordering), and lexicographic order using only the first length characters of the query string (a family of alternate orderings). By providing three different comparison methods, we are able to sort terms in three different orders. All three orders will be important in delivering the autocomplete functionality.
+union(LinkedSet<T> s)
+The external behavior of this overloaded method is identical to the union method from the Set interface described above. However, since the parameter is typed as an LinkedSet, this method can directly access the doubly-linked list in this set as well as in the parameter set. Having access to the underlying representation of both sets allows a more efficient algorithm for this method. The time complexity of the union method must be O(N) where N is the size of the larger of the two sets involved.
 
-The BinarySearch class
-BinarySearch provides two search methods, both of which are variants of the classic binary search presented in lecture. When binary searching a sorted array that contains more than one key equal to the search key, the client may want to know the index of either the first or last matching key.
+intersection(LinkedSet<T> s)
+The external behavior of this overloaded method is identical to the intersection method from the Set interface described above. However, since the parameter is typed as an LinkedSet, this method can directly access the doubly-linked list in this set as well as in the parameter set. Having access to the underlying representation of both sets allows a more efficient algorithm for this method. The time complexity of the intersection method must be O(N) where N is the size of the larger of the two sets involved.
 
-public class BinarySearch {
+complement(LinkedSet<T> s)
+The external behavior of this overloaded method is identical to the complement method from the Set interface described above. However, since the parameter is typed as an LinkedSet, this method can directly access the doubly-linked list in this set as well as in the parameter set. Having access to the underlying representation of both sets allows a more efficient algorithm for this method. The time complexity of the complement method must be O(N) where N is the size of the larger of the two sets involved.
 
-    /**
-     * Returns the index of the first key in a[] that equals the search key, 
-     * or -1 if no such key exists. This method throws a NullPointerException
-     * if any parameter is null.
-     */
-    public static <Key> int firstIndexOf(Key[] a, Key key, Comparator<Key> comparator) { }
+descendingIterator()
+The descendingIterator method returns an Iterator over the elements in this set in descending natural order. The associated performance constraints are as follows: descendingIterator(): O(1); hasNext(): O(1); next(): O(1); required space: O(1).
 
-    /**
-     * Returns the index of the last key in a[] that equals the search key, 
-     * or -1 if no such key exists. This method throws a NullPointerException
-     * if any parameter is null.
-     */
-    public static <Key> int lastIndexOf(Key[] a, Key key, Comparator<Key> comparator) { }
-}
-Both methods must use the binary search algorithm and make on the order of log N comparisons to a[middle] where N is the number of elements in a[].
-
-The Autocomplete class
-Autocomplete uses the Term and BinarySearch class to provide complete autocomplete functionality for a given set of strings and weights.
-
-public class Autocomplete {
-
-	/**
-	 * Initializes a data structure from the given array of terms.
-	 * This method throws a NullPointerException if terms is null.
-	 */
-	public Autocomplete(Term[] terms) { }
-
-	/** 
-	 * Returns all terms that start with the given prefix, in descending order of weight. 
-	 * This method throws a NullPointerException if prefix is null.
-	 */
-	public Term[] allMatches(String prefix) { }
-
-}
-The constructor must store the contents of terms in its own internal array and then sort this array in natural order (lexicographic order of query). The allMatches method must use the binary search methods to identify the range of methods that begin with the given prefix and return these elements in an array sorted in descending order of weight. This returned array represents the predicted completions for the given prefix.
-
-Acknowledgments
-This assignment is based on a problem originally described by Matthew Drabick and Kevin Wayne in 2014.
+powerSetIterator()
+The power set of a set S, denoted P(S), is defined as {T | T ⊆ S}; that is, the set of all subsets of S. There are 2^N members of P(S) where N is the number of elements in S. For example, if S = {A,B,C}, then P(S) = {∅, {A}, {B}, {C}, {A,B}, {B,C}, {A,C}, {A,B,C}}. (Note that the empty set ∅ is a member of every set.) The powersetIterator method returns an Iterator over the elements in the power set of this set. The iterator makes no guarantees regarding the order in which the elements of P(S) will be returned. The associated time complexities are as follows: powerSetIterator(): O(N); hasNext(): O(1); next(): O(N); required space: O(N), where N is the size of this set.
