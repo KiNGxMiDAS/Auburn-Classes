@@ -1,1 +1,0 @@
-Activities for the course
