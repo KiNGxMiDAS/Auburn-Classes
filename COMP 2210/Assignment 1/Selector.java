@@ -70,37 +70,6 @@ public final class Selector {
     * the number of distinct values in the array. The array a is not
     * changed by this method.
     */
-    
- // STUDY THIS !! DON'T DELETE CODE !! COMPARE TO BOTTOM CODE FROM INTELLI-j
- 
-   /**public static int kmin(int[] a, int k) {
-      if (a == null || a.length == 0 || k < 1 || k > a.length) {
-         throw new IllegalArgumentException();
-      }
-        
-      int[] copyArray = Arrays.copyOf(a, a.length);
-      Arrays.sort(copyArray);
-      
-      int[] uniqueArray = new int[copyArray.length];
-        
-      int j = 1; // Keeps track of where we are in the unique array.
-      
-      uniqueArray[0] = copyArray[0];
-      
-      for (int i = 1; i < copyArray.length; i++) { //i -> counter
-         if (copyArray[i] != copyArray[i - 1]) {
-            uniqueArray[j] = copyArray[i];
-            j++;
-         }
-      }
-      if (k > j) {
-         throw new IllegalArgumentException();
-      }
-      return uniqueArray[k - 1];      
-      
-   }  */
-   
-   
    public static int kmin(int[] a, int k) throws IllegalArgumentException {
       if (a != null && a.length != 0 && k >= 1 && k <= a.length) {
          int[] copyArray = Arrays.copyOf(a, a.length);
@@ -134,36 +103,6 @@ public final class Selector {
     * the number of distinct values in the array. The array a is not
     * changed by this method.
     */
-    
-  // STUDY THIS !! DON'T DELETE CODE !! COMPARE TO BOTTOM CODE FROM INTELLI-j
-    
-   /**public static int kmax(int[] a, int k) {
-      if (a == null || a.length == 0 || k < 1 || k > a.length) {
-         throw new IllegalArgumentException();
-      }
-      
-      int[] copyArray = Arrays.copyOf(a, a.length);
-      Arrays.sort(copyArray);
-      
-      int[] uniqueArray = new int[copyArray.length];
-      
-      
-      int j = 1; // Keeps track of where we are in the unique array.
-      
-      uniqueArray[0] = copyArray[0];
-      
-      for (int i = 1; i < copyArray.length; i++) { //i -> counter
-         if (copyArray[i] != copyArray[i - 1]) {
-            uniqueArray[j] = copyArray[i];
-            j++;
-         }
-      }
-      if (k > j) {
-         throw new IllegalArgumentException();
-      }
-      return uniqueArray[j - k];
-   }   */  
-   
    public static int kmax(int[] a, int k) throws IllegalArgumentException {
       if (a != null && a.length != 0 && k >= 1 && k <= a.length) {
          int[] copyArray = Arrays.copyOf(a, a.length);
@@ -200,37 +139,6 @@ public final class Selector {
     * IllegalArgumentException if a is null or has zero length.
     * The array a is not changed by this method.
     */
-   // DON'T DELETE CODE !! STUDY THIS !!
-   /**public static int[] range(int[] a, int low, int high) throws IllegalArgumentException {
-      if (a == null || a.length == 0) {
-         throw new IllegalArgumentException();
-      }
-      
-      int k = 0;
-      for (int i = 0; i < a.length; i++) {
-         if (a[i] >= low && a[i] <= high) { 
-            k++;
-         }
-      }
-      
-      int[] rangeValues = new int[k]; // Contains all of the values within range.
-      
-      int itr = 0;
-      for (int t = 0; t < a.length; t++) {
-         if (a[t] >= low && a[t] <= high) { // Condition
-            rangeValues[itr] = a[t]; // Copies accepted values into new array.
-            itr++;
-         }
-      
-      }
-      
-      if (k == 0) { //Returns array with 0 values.
-               //int[] noLength = new noLength[0];
-         return rangeValues;
-      }
-      return rangeValues; //Returns values.
-   } */
-
    public static int[] range(int[] a, int low, int high) throws IllegalArgumentException {
       if (a != null && a.length != 0) {
          int k = 0;
@@ -268,25 +176,6 @@ public final class Selector {
     * value. Note that key does not have to be an actual value in a.
     * The array a is not changed by this method.
     */
-   // DONTTTTTT DELETEEEEEEE !!!! STUDDDYYYYYYYY!!!
-   /**public static int ceiling(int[] a, int key) throws IllegalArgumentException {
-      if (a == null || a.length == 0) {
-         throw  new IllegalArgumentException();
-      }
-      
-      int placeholder = -1;
-      for (int i = 0; i < a.length; i++) {
-         if ((placeholder < 0 || a[placeholder] > a[i]) && a[i] >= key) {
-            placeholder = i;
-         }
-      }
-      if (placeholder < 0) {
-         throw new IllegalArgumentException();
-      }
-      return a[placeholder];
-      
-   } */
-
    public static int ceiling(int[] a, int key) throws IllegalArgumentException {
       if (a != null && a.length != 0) {
          int placeholder = -1;
@@ -314,25 +203,6 @@ public final class Selector {
     * value. Note that key does not have to be an actual value in a.
     * The array a is not changed by this method.
     */
-   // DONT DELETE THIS CUHH
-   /**
-   public static int floor(int[] a, int key) throws IllegalArgumentException {
-      if (a == null || a.length == 0) {
-         throw  new IllegalArgumentException();
-      }
-      int placeholder = -1;
-      for (int i = 0; i < a.length; i++) {
-         if ((placeholder < 0 || a[placeholder] < a[i]) && a[i] <= key) {
-            placeholder = i;
-         }
-      }
-      if (placeholder < 0) {
-         throw new IllegalArgumentException();
-      }
-      return a[placeholder];
-   
-   }    */
-
    public static int floor(int[] a, int key) throws IllegalArgumentException {
       if (a != null && a.length != 0) {
          int placeholder = -1;
@@ -390,9 +260,7 @@ public final class Selector {
       
       int [] arr2 = {2, 3, 4, 5, 6, 7, 8, -9, 1, -1, 0, -4};
       System.out.println("\n\nFor the max method, our input array is: " + toString(arr1));
-      System.out.println("=> max = " + Selector.max(arr2)); 
-   
-           
+      System.out.println("=> max = " + Selector.max(arr2));    
    
    }
 }
