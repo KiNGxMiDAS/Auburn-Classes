@@ -7,8 +7,7 @@ import org.junit.Test;
 /********************************
  * Test file for Selector.java  *
  *                              *
- * Assignment 1                 *
- * @author Midas Oden           * 
+ * Assignment 1                 * 
  * @version August 29, 2020     *
 /********************************/
 public class SelectorTest {
