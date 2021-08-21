@@ -8,6 +8,6 @@ On completion of the course, students should be able to:
 * Understand classes of abstract languages, their boundaries, and their representations both in terms of grammar and machine models.
 * Understand the significance of formal languages for computer science in general.
 
-# Assignment Overview
-## Assignment 1
+## Assignment Overview
+### Assignment 1
 
