@@ -1,4 +1,4 @@
-Objectives:
+# Objective
 * Get to know the Linux operating system
 * Learn basic Linux commands
 * Prepare a Linux programming environment for the future COMP3500 projects
