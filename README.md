@@ -1,2 +1,2 @@
 # Auburn-Classes
-An overview of the Computer Sciences courses taken at Auburn University.
+An overview of CS courses taken at Auburn University.
