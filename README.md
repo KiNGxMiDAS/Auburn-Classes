@@ -1,2 +1,2 @@
 # Auburn-Classes
-An overview of some of the programming courses taken at Auburn University.
+An overview of the Computer Sciences courses taken at Auburn University.
