@@ -1,7 +1,7 @@
 # Introduction to Operating Systems
 
 # Objectives
-Structure and functions of operating systems; processes and process scheduling; synchronization and mutual exclusion; memory management; auxiliary storage management; resource allocation and deadlock; security, privacy, and ethical concerns; design tradeoffs.
+Introduction to Operating Systems (COMP 3500) teaches the structure and functions of operating systems; processes and process scheduling; synchronization and mutual exclusion; memory management; auxiliary storage management; resource allocation and deadlock; security, privacy, and ethical concerns; design tradeoffs.
 
 This course aims to:
 * educate students on the fundamental concepts and components of operating systems;
