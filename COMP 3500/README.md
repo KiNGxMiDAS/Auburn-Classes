@@ -9,14 +9,14 @@ This course aims to:
 * present the good tradeoffs among objectives conflicting with one another.
 
 On completion of the course, students should be able to:
-* understand the essential concepts and mechanisms of operating systems;
-* implement a synchronization mechanism;
-* build system calls;
-* know the paging and TLB technologies;
-* construct a virtual memory management system;
-* understand file management strategies;
-* evaluate operating system performance; and
-* demonstrate ability to program at low levels.
+* Understand the essential concepts and mechanisms of operating systems;
+* Implement a synchronization mechanism;
+* Build system calls;
+* Know the paging and TLB technologies;
+* Construct a virtual memory management system;
+* Understand file management strategies;
+* Evaluate operating system performance; and
+* Demonstrate ability to program at low levels.
 
-## Project Overview
-### Project 1
+# Project Overview
+## Project 1
