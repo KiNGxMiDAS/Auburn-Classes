@@ -1,449 +1,0 @@
-Script started on Sat 21 Aug 2021 12:27:16 AM CDT
-[?1034hbash-4.2$ man
-What manual page do you want?
-bash-4.2$ manexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kmvcpmkdir[3Plspwd[1Pcd[4Pcdman cd
-[?1049h[?1h=BASH_BUILTINS(1)          General Commands Manual          BASH_BUILTINS(1)[m
-[m
-[1mNAME[0m[m
-       bash, :, ., [, alias, bg, bind, break, builtin, caller, cd, command,[m
-       compgen, complete, compopt, continue, declare, dirs,  disown,  echo,[m
-       enable,  eval,  exec,  exit,  export,  false, fc, fg, getopts, hash,[m
-       help, history,  jobs,  kill,  let,  local,  logout,  mapfile,  popd,[m
-       printf,  pushd,  pwd,  read,  readonly,  return,  set, shift, shopt,[m
-       source, suspend, test, times, trap,  true,  type,  typeset,  ulimit,[m
-       umask, unalias, unset, wait - bash built-in commands, see [1mbash[0m(1)[m
-[m
-[1mBASH[0m [1mBUILTIN[0m [1mCOMMANDS[0m[m
-       Unless otherwise noted, each builtin command documented in this sec‐[m
-       tion as accepting options preceded by [1m-[0m accepts [1m--[0m  to  signify  the[m
-       end  of  the  options.  The [1m:[0m, [1mtrue[0m, [1mfalse[0m, and [1mtest[0m builtins do not[m
-       accept options and do not treat [1m--[0m  specially.   The  [1mexit[0m,  [1mlogout[0m,[m
-       [1mbreak[0m,  [1mcontinue[0m,  [1mlet[0m,  and [1mshift[0m builtins accept and process argu‐[m
-       ments beginning with [1m-[0m without requiring [1m--[0m.   Other  builtins  that[m
-       accept  arguments  but are not specified as accepting options inter‐[m
-       pret arguments beginning with [1m-[0m as invalid options and require [1m--[0m to[m
-       prevent this interpretation.[m
-       [1m:[0m [[4marguments[24m][m
-              No  effect;  the  command does nothing beyond expanding [4margu‐[24m[m
-[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K [KESCESC[KOO[KAA[K[K[7m Manual page cd(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man cd[Kexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kmvcpmkdir[3Plspwd[1Pcd[4Pcdman cdpwd
-[?1049h[?1h=PWD(1)                         User Commands                         PWD(1)[m
-[m
-[1mNAME[0m[m
-       pwd - print name of current/working directory[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mpwd[0m [[4mOPTION[24m]...[m
-[m
-[1mDESCRIPTION[0m[m
-       Print the full filename of the current working directory.[m
-[m
-       [1m-L[0m, [1m--logical[0m[m
-              use PWD from environment, even if it contains symlinks[m
-[m
-       [1m-P[0m, [1m--physical[0m[m
-              avoid all symlinks[m
-[m
-       [1m--help[0m display this help and exit[m
-[m
-       [1m--version[0m[m
-              output version information and exit[m
-[m
-       NOTE:  your  shell  may  have  its own version of pwd, which usually[m
-[7m Manual page pwd(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man pwd[1Pcd[Kexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kmvcpmkdir[3Plspwd[1Pcdpwd[1Pls
-[?1049h[?1h=LS(1)                          User Commands                          LS(1)[m
-[m
-[1mNAME[0m[m
-       ls - list directory contents[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mls[0m [[4mOPTION[24m]... [[4mFILE[24m]...[m
-[m
-[1mDESCRIPTION[0m[m
-       List information about the FILEs (the current directory by default).[m
-       Sort entries alphabetically if none of [1m-cftuvSUX[0m nor [1m--sort[0m is spec‐[m
-       ified.[m
-[m
-       Mandatory  arguments to long options are mandatory for short options[m
-       too.[m
-[m
-       [1m-a[0m, [1m--all[0m[m
-              do not ignore entries starting with .[m
-[m
-       [1m-A[0m, [1m--almost-all[0m[m
-              do not list implied . and ..[m
-[m
-       [1m--author[0m[m
-[7m Manual page ls(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man lspwd[1Pcd[Kexitwhoisthisman nproc[2Pwhotopclearhmodlearhmodrmdir[Kmvcpmkdir[3Plspwd[1Plsmkdir
-[?1049h[?1h=MKDIR(1)                       User Commands                       MKDIR(1)[m
-[m
-[1mNAME[0m[m
-       mkdir - make directories[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mmkdir[0m [[4mOPTION[24m]... [4mDIRECTORY[24m...[m
-[m
-[1mDESCRIPTION[0m[m
-       Create the DIRECTORY(ies), if they do not already exist.[m
-[m
-       Mandatory  arguments to long options are mandatory for short options[m
-       too.[m
-[m
-       [1m-m[0m, [1m--mode[0m=[4mMODE[24m[m
-              set file mode (as in chmod), not a=rwx - umask[m
-[m
-       [1m-p[0m, [1m--parents[0m[m
-              no error if existing, make parent directories as needed[m
-[m
-       [1m-v[0m, [1m--verbose[0m[m
-              print a message for each created directory[m
-[m
-[7m Manual page mkdir(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man mkdir[3Plspwd[1Pcd[Kexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kmvcpmkdir[3Plsmkdir[3Pcp
-[?1049h[?1h=CP(1)                          User Commands                          CP(1)[m
-[m
-[1mNAME[0m[m
-       cp - copy files and directories[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mcp[0m [[4mOPTION[24m]... [[4m-T[24m] [4mSOURCE[24m [4mDEST[24m[m
-       [1mcp[0m [[4mOPTION[24m]... [4mSOURCE[24m... [4mDIRECTORY[24m[m
-       [1mcp[0m [[4mOPTION[24m]... [4m-t[24m [4mDIRECTORY[24m [4mSOURCE[24m...[m
-[m
-[1mDESCRIPTION[0m[m
-       Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY.[m
-[m
-       Mandatory  arguments to long options are mandatory for short options[m
-       too.[m
-[m
-       [1m-a[0m, [1m--archive[0m[m
-              same as [1m-dR[0m [1m--preserve[0m=[4mall[24m[m
-[m
-       [1m--attributes-only[0m[m
-              don't copy the file data, just the attributes[m
-[m
-       [1m--backup[0m[=[4mCONTROL[24m][m
-[7m Manual page cp(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man cpmkdir[3Plspwd[1Pcd[Kexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kmvcpmkdir[3Pcpmv
-[?1049h[?1h=MV(1)                          User Commands                          MV(1)[m
-[m
-[1mNAME[0m[m
-       mv - move (rename) files[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mmv[0m [[4mOPTION[24m]... [[4m-T[24m] [4mSOURCE[24m [4mDEST[24m[m
-       [1mmv[0m [[4mOPTION[24m]... [4mSOURCE[24m... [4mDIRECTORY[24m[m
-       [1mmv[0m [[4mOPTION[24m]... [4m-t[24m [4mDIRECTORY[24m [4mSOURCE[24m...[m
-[m
-[1mDESCRIPTION[0m[m
-       Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.[m
-[m
-       Mandatory  arguments to long options are mandatory for short options[m
-       too.[m
-[m
-       [1m--backup[0m[=[4mCONTROL[24m][m
-              make a backup of each existing destination file[m
-[m
-       [1m-b[0m     like [1m--backup[0m but does not accept an argument[m
-[m
-       [1m-f[0m, [1m--force[0m[m
-              do not prompt before overwriting[m
-[7m Manual page mv(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man mvcpmkdir[3Plspwd[1Pcd[Kexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kmvcpmvrmmvrm
-[?1049h[?1h=RM(1)                          User Commands                          RM(1)[m
-[m
-[1mNAME[0m[m
-       rm - remove files or directories[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mrm[0m [[4mOPTION[24m]... [4mFILE[24m...[m
-[m
-[1mDESCRIPTION[0m[m
-       This  manual  page documents the GNU version of [1mrm[0m.  [1mrm[0m removes each[m
-       specified file.  By default, it does not remove directories.[m
-[m
-       If the [4m-I[24m or [4m--interactive=once[24m option is given, and there are  more[m
-       than  three  files  or the [4m-r[24m, [4m-R[24m, or [4m--recursive[24m are given, then [1mrm[0m[m
-       prompts the user for whether to proceed with the  entire  operation.[m
-       If the response is not affirmative, the entire command is aborted.[m
-[m
-       Otherwise,  if  a  file is unwritable, standard input is a terminal,[m
-       and the [4m-f[24m or [4m--force[24m option is not given, or the [4m-i[24m  or  [4m--interac‐[24m[m
-       [4mtive=always[24m  option  is  given,  [1mrm[0m  prompts the user for whether to[m
-       remove the file.  If the response is not affirmative,  the  file  is[m
-       skipped.[m
-[m
-[7m Manual page rm(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man rmmvcpmkdir[3Plspwd[1Pcd[Kexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kmvrmdir
-[?1049h[?1h=RMDIR(1)                       User Commands                       RMDIR(1)[m
-[m
-[1mNAME[0m[m
-       rmdir - remove empty directories[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mrmdir[0m [[4mOPTION[24m]... [4mDIRECTORY[24m...[m
-[m
-[1mDESCRIPTION[0m[m
-       Remove the DIRECTORY(ies), if they are empty.[m
-[m
-       [1m--ignore-fail-on-non-empty[0m[m
-[m
-              ignore each failure that is solely because a directory[m
-[m
-              is non-empty[m
-[m
-       [1m-p[0m, [1m--parents[0m[m
-              remove DIRECTORY and its ancestors; e.g., 'rmdir [1m-p[0m a/b/c' is[m
-              similar to 'rmdir a/b/c a/b a'[m
-[m
-       [1m-v[0m, [1m--verbose[0m[m
-              output a diagnostic for every directory processed[m
-[7m Manual page rmdir(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man rmdir[Kmvcpmkdir[3Plspwd[1Pcd[Kexit[1Pman cdpwd[1Plsmkdir[3Pcpmkdir[3Plspwd[1Pcd[Kexitwhoisthisman nproc[2Pwhotopclearhmodrmdir[Kdirchmod
-[?1049h[?1h=CHMOD(1)                       User Commands                       CHMOD(1)[m
-[m
-[1mNAME[0m[m
-       chmod - change file mode bits[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mchmod[0m [[4mOPTION[24m]... [4mMODE[24m[[4m,MODE[24m]... [4mFILE[24m...[m
-       [1mchmod[0m [[4mOPTION[24m]... [4mOCTAL-MODE[24m [4mFILE[24m...[m
-       [1mchmod[0m [[4mOPTION[24m]... [4m--reference=RFILE[24m [4mFILE[24m...[m
-[m
-[1mDESCRIPTION[0m[m
-       This  manual page documents the GNU version of [1mchmod[0m.  [1mchmod[0m changes[m
-       the file mode bits of each given file according to [4mmode[24m,  which  can[m
-       be  either a symbolic representation of changes to make, or an octal[m
-       number representing the bit pattern for the new mode bits.[m
-[m
-       The format of  a  symbolic  mode  is  [[1mugoa[0m...][[[1m+-=[0m][[4mperms[24m...]...],[m
-       where [4mperms[24m is either zero or more letters from the set [1mrwxXst[0m, or a[m
-       single letter from the set [1mugo[0m.   Multiple  symbolic  modes  can  be[m
-       given, separated by commas.[m
-[m
-       A  combination  of  the letters [1mugoa[0m controls which users' access to[m
-       the file will be changed: the user who owns it ([1mu[0m), other  users  in[m
-[7m Manual page chmod(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man clear
-[?1049h[?1h=clear(1)                  General Commands Manual                  clear(1)[m
-[m
-[1mNAME[0m[m
-       [1mclear[0m - clear the terminal screen[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mclear[0m[m
-[m
-[1mDESCRIPTION[0m[m
-       [1mclear[0m clears your screen if this is possible.  It looks in the envi‐[m
-       ronment for the terminal type and then in the [1mterminfo[0m  database  to[m
-       figure  out  how to clear the screen.  Some terminals can clear also[m
-       their scrollback buffer to prevent access to  potentially  sensitive[m
-       data.  If the [1mterminfo[0m entry for the terminal type contains extended[m
-       capability [1mE3[0m, [1mclear[0m will use it to clear the scrollback buffer.[m
-[m
-       [1mclear[0m ignores any command-line parameters that may be present.[m
-[m
-[1mSEE[0m [1mALSO[0m[m
-       [1mtput[0m(1), [1mterminfo[0m(5)[m
-[m
-       This describes [1mncurses[0m version 5.9 (patch 20130511).[m
-[m
-[7m Manual page clear(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man top
-[?1049h[?1h=TOP(1)                         User Commands                         TOP(1)[m
-[m
-[1mNAME[0m[m
-       top - display Linux processes[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mtop[0m -[1mhv[0m|-[1mbcHiOSs[0m -[1md[0m secs -[1mn[0m max -[1mu[0m|[1mU[0m user -[1mp[0m pid -[1mo[0m fld -[1mw[0m [cols][m
-[m
-       The traditional switches `-' and whitespace are optional.[m
-[m
-[1mDESCRIPTION[0m[m
-       The  [1mtop[0m program provides a dynamic real-time view of a running sys‐[m
-       tem.  It can display [1msystem[0m summary information as well as a list of[m
-       [1mprocesses[0m  or  [1mthreads[0m  currently being managed by the Linux kernel.[m
-       The types of system summary information shown and the  types,  order[m
-       and size of information displayed for processes are all user config‐[m
-       urable  and  that  configuration  can  be  made  persistent   across[m
-       restarts.[m
-[m
-       The  program  provides  a  limited interactive interface for process[m
-       manipulation as well as a much more extensive interface for personal[m
-       configuration   --  encompassing every aspect of its operation.  And[m
-       while [1mtop[0m is referred to throughout this document, you are  free  to[m
-[7m Manual page top(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man who
-[?1049h[?1h=WHO(1)                         User Commands                         WHO(1)[m
-[m
-[1mNAME[0m[m
-       who - show who is logged on[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mwho[0m [[4mOPTION[24m]... [ [4mFILE[24m [4m|[24m [4mARG1[24m [4mARG2[24m ][m
-[m
-[1mDESCRIPTION[0m[m
-       Print information about users who are currently logged in.[m
-[m
-       [1m-a[0m, [1m--all[0m[m
-              same as [1m-b[0m [1m-d[0m [1m--login[0m [1m-p[0m [1m-r[0m [1m-t[0m [1m-T[0m [1m-u[0m[m
-[m
-       [1m-b[0m, [1m--boot[0m[m
-              time of last system boot[m
-[m
-       [1m-d[0m, [1m--dead[0m[m
-              print dead processes[m
-[m
-       [1m-H[0m, [1m--heading[0m[m
-              print line of column headings[m
-[m
-[7m Manual page who(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ man nproc
-[?1049h[?1h=NPROC(1)                       User Commands                       NPROC(1)[m
-[m
-[1mNAME[0m[m
-       nproc - print the number of processing units available[m
-[m
-[1mSYNOPSIS[0m[m
-       [1mnproc[0m [[4mOPTION[24m]...[m
-[m
-[1mDESCRIPTION[0m[m
-       Print  the  number  of  processing  units  available  to the current[m
-       process, which may be less than the number of online processors[m
-[m
-       [1m--all[0m  print the number of installed processors[m
-[m
-       [1m--ignore[0m=[4mN[24m[m
-              if possible, exclude N processing units[m
-[m
-       [1m--help[0m display this help and exit[m
-[m
-       [1m--version[0m[m
-              output version information and exit[m
-[m
-       GNU coreutils online help:  <http://www.gnu.org/software/coreutils/>[m
-[7m Manual page nproc(1) line 1 (press h for help or q to quit)[27m[K[K[?1l>[?1049lbash-4.2$ cd[K[Kls[K[Kcd ..
-bash-4.2$ ls
-code  practice	projects
-bash-4.2$ cd
-bash-4.2$ ls
-comp-3500  ntuser.cmd
-bash-4.2$ cd comp-3500/
-bash-4.2$ ls
-code  practice	projects
-bash-4.2$ cd [K[K[Kpwd
-/home/u3/mto0006/comp-3500
-bash-4.2$ ls
-code  practice	projects
-bash-4.2$ cd projects/
-bash-4.2$ ls
-commands.script
-bash-4.2$ cd [K[K[Kmkdir a-directory[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd ..
-bash-4.2$ ls
-code  practice	projects
-bash-4.2$ mkdir test-directory
-bash-4.2$ ls
-code  practice	projects  test-directory
-bash-4.2$ cd code 
-bash-4.2$ ls
-helloworld.c
-bash-4.2$ cd ..
-bash-4.2$ ls
-code  practice	projects  test-directory
-bash-4.2$ cp [K[K[Knano testfile.txt
-[?1049h[1;24r(B[m[4l[?7h[?12l[?25h[?1h=[?1h=[?1h=[39;49m[39;49m(B[m[H[2J(B[0;7m  GNU nano 2.3.1            File: testfile.txt                               [22;33H[ New File ][23d^G(B[m Get Help (B[0;7m^O(B[m WriteOut (B[0;7m^R(B[m Read File(B[0;7m^Y(B[m Prev Page(B[0;7m^K(B[m Cut Text (B[0;7m^C(B[m Cur Pos[24d(B[0;7m^X(B[m Exit     (B[0;7m^J(B[m Justify  (B[0;7m^W(B[m Where Is (B[0;7m^V(B[m Next Page(B[0;7m^U(B[m UnCut Tex(B[0;7m^T(B[m To Spell[3d[1;68H(B[0;7mModified[3d(B[mt[KThis is	a test file[22d(B[0;7mSave modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                 [23;1H Y(B[m Yes[K[24d(B[0;7m N(B[m No           (B[0;7m^C(B[m Cancel[K[22;62H(B[0;7mFile Name to Write: testfile.txt                            [23d^G(B[m Get Help[23;20H(B[0;7mM-D(B[m DOS Format     (B[0;7mM-A(B[m Append[23;58H(B[0;7mM-B(B[m Backup File[24d(B[0;7m^C(B[m Cancel	   (B[0;7mM-M(B[m Mac Format     (B[0;7mM-P(B[m Prepend[22;33H[23d[39;49m(B[m[J[1;68H(B[0;7m        [22;30H(B[m[1K (B[0;7m[ Wrote 1 line ](B[m[K[24;77H[24;1H[?1049l[?1l>bash-4.2$ ls
-code  practice	projects  test-directory  testfile.txt
-bash-4.2$ cp testfile.txt test0d[K[K-directory/
-bash-4.2$ ls
-code  practice	projects  test-directory  testfile.txt
-bash-4.2$ cd[K[Kcd test-directory/
-bash-4.2$ ls
-testfile.txt
-bash-4.2$ cd ..
-bash-4.2$ ls
-code  practice	projects  test-directory  testfile.txt
-bash-4.2$ mv testfile.txt test-directory/
-bash-4.2$ ls
-code  practice	projects  test-directory
-bash-4.2$ cd test-directory/
-bash-4.2$ ls
-testfile.txt
-bash-4.2$ rm testfile.txt 
-bash-4.2$ ls
-bash-4.2$ cd ..
-bash-4.2$ ls
-code  practice	projects  test-directory
-bash-4.2$ rmdir dir[K[K[Ktest0d[K[K-directory/
-bash-4.2$ ls
-code  practice	projects
-bash-4.2$ top
-[?1h=[?25l[H[2J(B[mtop - 00:33:53 up 1 day, 12:29,  2 users,  load average: 0.00, 0.01, 0.05(B[m[39;49m(B[m[39;49m[K
-Tasks:(B[m[39;49m[1m 265 (B[m[39;49mtotal,(B[m[39;49m[1m   1 (B[m[39;49mrunning,(B[m[39;49m[1m 264 (B[m[39;49msleeping,(B[m[39;49m[1m   0 (B[m[39;49mstopped,(B[m[39;49m[1m   0 (B[m[39;49mzombie(B[m[39;49m(B[m[39;49m[K
-%Cpu(s):(B[m[39;49m[1m  0.3 (B[m[39;49mus,(B[m[39;49m[1m  1.5 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 98.2 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49m(B[m[39;49m[K
-KiB Mem :(B[m[39;49m[1m 24508092 (B[m[39;49mtotal,(B[m[39;49m[1m 23107692 (B[m[39;49mfree,(B[m[39;49m[1m   598136 (B[m[39;49mused,(B[m[39;49m[1m   802264 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
-KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 23514696 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
-[K
-[7m  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND  (B[m[39;49m[K
-(B[m[1m17658 mto0006   20   0  168556   2460   1640 R  10.0  0.0   0:00.06 top      (B[m[39;49m[K
-(B[m    1 root      20   0  194472   7652   4212 S   0.0  0.0   0:32.16 systemd  (B[m[39;49m[K
-(B[m    2 root      20   0       0      0      0 S   0.0  0.0   0:00.01 kthreadd (B[m[39;49m[K
-(B[m    3 root      20   0       0      0      0 S   0.0  0.0   0:00.58 kworker+ (B[m[39;49m[K
-(B[m    4 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker+ (B[m[39;49m[K
-(B[m    6 root      20   0       0      0      0 S   0.0  0.0   0:00.11 ksoftir+ (B[m[39;49m[K
-(B[m    7 root      rt   0       0      0      0 S   0.0  0.0   0:00.17 migrati+ (B[m[39;49m[K
-(B[m    8 root      20   0       0      0      0 S   0.0  0.0   0:00.00 rcu_bh   (B[m[39;49m[K
-(B[m    9 root      20   0       0      0      0 S   0.0  0.0   0:19.05 rcu_sch+ (B[m[39;49m[K
-(B[m   10 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 lru-add+ (B[m[39;49m[K
-(B[m   11 root      rt   0       0      0      0 S   0.0  0.0   0:00.35 watchdo+ (B[m[39;49m[K
-(B[m   12 root      rt   0       0      0      0 S   0.0  0.0   0:00.30 watchdo+ (B[m[39;49m[K
-(B[m   13 root      rt   0       0      0      0 S   0.0  0.0   0:00.06 migrati+ (B[m[39;49m[K
-(B[m   14 root      20   0       0      0      0 S   0.0  0.0   0:00.01 ksoftir+ (B[m[39;49m[K
-(B[m   16 root       0 -20       0      0      0 S   0.0  0.0   0:00.00 kworker+ (B[m[39;49m[K
-(B[m   18 root      rt   0       0      0      0 S   0.0  0.0   0:00.30 watchdo+ (B[m[39;49m[K
-(B[m   19 root      rt   0       0      0      0 S   0.0  0.0   0:00.20 migrati+ (B[m[39;49m[K[H(B[mtop - 00:33:56 up 1 day, 12:30,  2 users,  load average: 0.00, 0.01, 0.05(B[m[39;49m(B[m[39;49m[K
-
-%Cpu(s):(B[m[39;49m[1m  0.0 (B[m[39;49mus,(B[m[39;49m[1m  0.1 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m 99.9 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49m(B[m[39;49m[K
-KiB Mem :(B[m[39;49m[1m 24508092 (B[m[39;49mtotal,(B[m[39;49m[1m 23107596 (B[m[39;49mfree,(B[m[39;49m[1m   597836 (B[m[39;49mused,(B[m[39;49m[1m   802660 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
-KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 23514932 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
-[K
-
-(B[m[1m17658 mto0006   20   0  168556   2536   1688 R   0.3  0.0   0:00.07 top      (B[m[39;49m[K
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[H(B[mtop - 00:33:59 up 1 day, 12:30,  2 users,  load average: 0.00, 0.01, 0.05(B[m[39;49m(B[m[39;49m[K
-
-%Cpu(s):(B[m[39;49m[1m  0.0 (B[m[39;49mus,(B[m[39;49m[1m  0.0 (B[m[39;49msy,(B[m[39;49m[1m  0.0 (B[m[39;49mni,(B[m[39;49m[1m100.0 (B[m[39;49mid,(B[m[39;49m[1m  0.0 (B[m[39;49mwa,(B[m[39;49m[1m  0.0 (B[m[39;49mhi,(B[m[39;49m[1m  0.0 (B[m[39;49msi,(B[m[39;49m[1m  0.0 (B[m[39;49m(B[m[39;49m[K
-KiB Mem :(B[m[39;49m[1m 24508092 (B[m[39;49mtotal,(B[m[39;49m[1m 23107496 (B[m[39;49mfree,(B[m[39;49m[1m   597928 (B[m[39;49mused,(B[m[39;49m[1m   802668 (B[m[39;49mbuff/cache(B[m[39;49m(B[m[39;49m[K
-KiB Swap:(B[m[39;49m[1m 12386300 (B[m[39;49mtotal,(B[m[39;49m[1m 12386300 (B[m[39;49mfree,(B[m[39;49m[1m        0 (B[m[39;49mused.(B[m[39;49m[1m 23514832 (B[m[39;49mavail Mem (B[m[39;49m(B[m[39;49m[K
-[K
-
-(B[m[1m17658 mto0006   20   0  168556   2536   1688 R   0.3  0.0   0:00.08 top      (B[m[39;49m[K
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[?1l>[25;1H
-[?12l[?25h[Kbash-4.2$ who
-mto0006  pts/0        2021-08-21 00:21 (ettin.eng.auburn.edu)
-mto0006  pts/1        2021-08-21 00:27
-bash-4.2$ nproc
-16
-bash-4.2$ exit
-exit
-
-Script done on Sat 21 Aug 2021 12:34:31 AM CDT
