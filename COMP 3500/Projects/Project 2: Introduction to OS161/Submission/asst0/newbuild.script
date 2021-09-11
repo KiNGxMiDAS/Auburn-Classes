@@ -1,0 +1,61 @@
+Script started on Fri 10 Sep 2021 08:08:47 PM CDT
+[?1034hbash-4.2$ cd ~/cs161/root
+bash-4.2$ ./sys161 kernel
+sys161: System/161 release 1.14, compiled Sep  8 2021 16:32:48
+Hello World!
+
+OS/161 base system version 1.10
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Midas Oden's 0 (ASST0 #15)
+
+Cpu is MIPS r2000/r3000
+1872k physical memory available
+
+Hello World!
+
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (100 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+OS/161 kernel [? for menu]: p /sbin/poweroff <return>
+Operation took 0.000162800 seconds
+OS/161 kernel [? for menu]: ELF: Loading 656 bytes to 0x400000
+dumbvm: fault: 0x400000
+dumbvm: 0x400000 -> 0x32000
+dumbvm: fault: 0x400000
+dumbvm: 0x400000 -> 0x32000
+ELF: Loading 0 bytes to 0x440290
+ELF: Zero-filling 8 more bytes
+dumbvm: fault: 0x440000
+dumbvm: 0x440000 -> 0x33000
+dumbvm: fault: 0x400000
+dumbvm: 0x400000 -> 0x32000
+dumbvm: fault: 0x400000
+dumbvm: 0x400000 -> 0x32000
+dumbvm: fault: 0x440000
+dumbvm: 0x440000 -> 0x33000
+dumbvm: fault: 0x7ffff000
+dumbvm: 0x7ffff000 -> 0x3f000
+syscall: #8, args 2 0 0 0
+Shutting down.
+The system is halted.
+sys161: 248938725 cycles (4908020k, 18u, 244030687i)
+sys161: 1762 irqs 8 exns 0r/0w disk 26r/1160w console 8r/0w/3m emufs 0r/0w net
+sys161: Elapsed real time: 9.969082 seconds (24.9711 mhz)
+sys161: Elapsed virtual time: 9.957549000 seconds (25 mhz)
+bash-4.2$ exit
+exit
+
+Script done on Fri 10 Sep 2021 08:09:05 PM CDT
