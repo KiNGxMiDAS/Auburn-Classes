@@ -10,19 +10,6 @@ This project has three interlinked modules:
 
 * Instructor module – This module is for the instructors who can log in to their accounts and check the projects submitted by the students, communicate with the students, and offer guidance to them.
 
+## Objective
 
-# Software Modeling and Design
-
-# Objectives
-Software Modeling and Design (COMP 3700) aims to educate students on the role of analysis and design in the software engineering lifecycle, develop object-oriented designs by applying established design principles, develop use-case and scenario descriptions of the requirements, develop richer descriptions of design models using UML diagrams, understand the role and influence of design patterns and frameworks in software design, and evaluate the quality of design models.
-
-Students will be able to:
-* Understand the role of analysis and design in the software engineering lifecycle.
-* Develop object-oriented designs by applying established design principles.
-* Develop use-case and scenario descriptions of the requirements.
-* Develop richer descriptions of design models using UML diagrams.
-* Understand the role and influence of design patterns and frameworks in software design.•Evaluate the quality of design models.
-
-# Project Overview
-## Project 1
 
