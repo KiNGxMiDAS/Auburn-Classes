@@ -10,6 +10,6 @@ This project has three interlinked modules:
 
 * **Instructor module** – This module is for the instructors who can log in to their accounts and check the projects submitted by the students, communicate with the students, and offer guidance to them.
 
-## Objective
+## Objective / Problem Statement
 
 
