@@ -1,0 +1,201 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Code Reading Exercise %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+%% THREAD QUESTIONS %%
+%%%%%%%%%%%%%%%%%%%%%%
+
+
+(1). What happens to a thread when it exits (i.e., calls thread_exit() )? What about when it sleeps?
+
+>>> When a thread exits, it ensures the stack isn't comprised with
+    its virtual memory space. Address space for the thread is cleared.
+    
+>>> The reference count to the thread's current working directory is 
+    decremented. It then places itself into a zombie state, i.e. S_ZOMB, 
+    and preps itself to panic ifit ever runs again before being destroyed.
+    Processor will pick upo another thread.
+
+>>> When a thread sleeps, it ensures that it will yield control
+    to the next thread while also making sure not to be associ-
+    ated with the interrupt handler at the time of sleeping.
+    It will then enter the S_SLEEP state and will ONLY start
+    taking control again once thread_wakeup() is called on its
+    address.
+
+
+--> from kern/thread/thread.c <<<
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(2). What function(s) handle(s) a context switch?
+
+>>> There are two functions that handle a context switch: 
+	(1) mi_switch, which is the high level, machine-independent context switch function, and
+	(2) md_switch, which is the machine-dependent code that serves as an entry point & actually does the context switch. 
+
+
+--> mi_switch from kern/thread/thread.c 
+--> md_switch from kern/arch/mips/mips/pcb.c <<<
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(3). How many threads states are there? What are they?
+
+>>> There are four thread states:
+	(1) S_RUN — thread is running
+	(2) S_READY — thread is runnable; but isn't currently running
+	(3) S_SLEEP — thread is sleeping
+	(4) S_ZOMB — thread has exited; but isn't deleted
+
+
+--> from kern/thread/thread.c <<<
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(4). What does it mean to turn interrupts off? How is this accomplished? Why is it important to turn off interrupts in the thread subsystem code?
+
+>>> Turning interrupts off means that no other thread can replace
+    the current thread through a context switch, preventing the
+    handler from being called.
+
+>>> If interrupts are turned off, then even if an interrupt is 
+    signaled the handler is not called until interrupts are 
+    re-enabled. The current working thread will not be interrupted 
+    until interrupts are re-enabled, meaning the code section 
+    between disabling and re-enabling interrupts will be executed
+    atomically. 
+
+>>> This is accomplished using the function splhigh (set priority level high).
+    int spl = splhigh();
+
+>>> Turning off interrupts for thread operations is necessary 
+    to ensure that these operations complete successfully and 
+    aren’t broken mid-execution. Context switches can complete 
+    properly or threads can properly exit.
+
+>>> If the scheduler interrupted a thread in the middle of a 
+    context switch and attempted to execute a thread that 
+    wasn’t finished setting up its stack, the program could 
+    possibly crash.
+
+
+--> from kern/arch/mips/include/spl.h <<<
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(5) What happens when a thread wakes up another thread? How does a sleeping thread get to run again?
+
+>>> It removes the sleeping thread from the queue, and calls
+    make_runnable on the thread, which currently adds it to 
+    the end of the runqueue. The thread gets to run again 
+    when an mi_switch is called, and that thread is returned 
+    by the scheduler.
+
+>>> It removes the sleeping thread from the queue and calls 
+    make_runnable on the thread. The thread gets to run again 
+    when an mi_switch is called.
+
+
+--> from kern/includethread.h <<<
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SCHEDULER QUESTIONS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(6). What function is responsible for choosing the next thread to run?
+
+
+>>> struct thread *scheduler(void); 
+ 
+
+--> from kern/thread/scheduler.c
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(7). How does that function pick the next thread?
+
+>>> struct thread *scheduler(void) uses a round-robin
+    run queue that schedules each thread in an equal 
+    time-slice without priorities.
+
+
+--> from kern/thread/scheduler.c
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(8). What role does the hardware timer play in scheduling? What hardware independent function is called on a timer interrupt?
+
+>>> The interrupt handler for the hardware timer calls hardclock.
+    The method hardclock(void) finishes by calling thread_yield 
+    every time it is run, which in turn forces a context switch.
+
+
+--> from kern/thread/hardclock.c
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SYNCHRONISATION QUESTIONS %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(9). Describe how thread_sleep() and thread_wakeup() are used to implement semaphores. What is the purpose of the argument passed to thread_sleep()?
+
+
+>>> The thread_sleep() method is used in the P function 
+    of the semaphore. This function suspends the current 
+    thread until the semaphore count is greater than zero.
+
+>>> The thread_wakeup() method is used in the V function 
+    of the semaphore. This function wakes up all the 
+    suspended threads waiting on the current semaphore.
+
+>>> The addr argument that is passed in is the address of the 
+    object (in this case, semaphore) the sleeping thread is 
+    associated with. This is required so that when thread_wakeup()
+    is called on the same semaphore, it can selectively wake up 
+    only the threads associated with that particular semaphore.
+
+>>> Overall, the purpose of the argumen being passed to thread_sleep()
+    is to synchronize sleeping and waiting calls so that no thread will sleep forever.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+(10). Why does the lock API in OS/161 provide lock_do_i_hold(), but not lock_get_holder()?
+
+>>> Because locks have to be released by the same thread that acquires them (and thereby prevent malicious actions).
+
+--> from kern/thread/synch.c
+
+
+
+
+
+
+
+
+
+

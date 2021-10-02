@@ -1,0 +1,278 @@
+Script started on Sat 02 Oct 2021 02:55:02 PM CDT
+[?1034hbash-4.2$ cd cs161/root/
+bash-4.2$ .sys161[K[K[K[K[K[K/sys161 kernel
+sys161: System/161 release 1.14, compiled Sep  8 2021 16:32:48
+
+OS/161 base system version 1.10
+Copyright (c) 2000, 2001, 2002, 2003
+   President and Fellows of Harvard College.  All rights reserved.
+
+Midas Oden's system version 0 (ASST1 #9)
+
+Cpu is MIPS r2000/r3000
+1868k physical memory available
+Device probe...
+lamebus0 (system main bus)
+emu0 at lamebus0
+ltrace0 at lamebus0
+ltimer0 at lamebus0
+hardclock on ltimer0 (10000 hz)
+beep0 at ltimer0
+rtclock0 at ltimer0
+lrandom0 at lamebus0
+random0 at lrandom0
+lser0 at lamebus0
+con0 at lser0
+pseudorand0 (virtual)
+
+OS/161 kernel [? for menu]: ?
+
+OS/161 kernel menu
+    [?o] Operations menu                [1c] Stoplight                      
+    [?t] Tests menu                     [kh] Kernel heap stats              
+    [1a] Cat/mouse with semaphores      [q] Quit and shut down              
+    [1b] Cat/mouse with locks and CVs   
+
+Operation took 0.061901200 seconds
+OS/161 kernel [? for menu]: ?t
+
+OS/161 tests menu
+    [at]  Array test                    [sy1] Semaphore test                
+    [bt]  Bitmap test                   [sy2] Lock test             (1)     
+    [qt]  Queue test                    [sy3] CV test               (1)     
+    [km1] Kernel malloc test            [fs1] Filesystem test               
+    [km2] kmalloc stress test           [fs2] FS read stress        (4)     
+    [tt1] Thread test 1                 [fs3] FS write stress       (4)     
+    [tt2] Thread test 2                 [fs4] FS write stress 2     (4)     
+    [tt3] Thread test 3                 [fs5] FS create stress      (4)     
+
+    (1) These tests will fail until you finish the synch assignment.
+    (4) These tests will fail until you finish the file system assignment.
+
+Operation took 0.163277840 seconds
+OS/161 kernel [? for menu]: sy1
+Starting semaphore test...
+If this hangs, it's broken: ok
+Thread  0: @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+Thread  1: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+Thread  2: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+Thread  8: HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH
+Thread  3: CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+Thread 10: JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+Thread  6: FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+Thread 16: PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+Thread  7: GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+Thread  9: IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+Thread  4: DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD
+Thread 12: LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+Thread  5: EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+Thread 11: KKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+Thread 18: RRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR
+Thread 13: MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+Thread 14: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+Thread 25: YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+Thread 23: WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW
+Thread 19: SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+Thread 20: TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+Thread 28: \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Thread 21: UUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU
+Thread 15: OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+Thread 31: _______________________________________________________________
+Thread 17: QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ
+Thread 26: ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+Thread 29: ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]
+Thread 30: ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Thread 22: VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+Thread 24: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+Thread 27: [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[
+Semaphore test done.
+Operation took 1.997269640 seconds
+OS/161 kernel [? for menu]: sy2
+Starting lock test...
+Lock test done.
+Operation took 3.292548360 seconds
+OS/161 kernel [? for menu]: sy3
+Starting CV test...
+Threads should print out in reverse order.
+Thread 31
+Thread 30
+Thread 29
+Thread 28
+Thread 27
+Thread 26
+Thread 25
+Thread 24
+Thread 23
+Thread 22
+Thread 21
+Thread 20
+Thread 19
+Thread 18
+Thread 17
+Thread 16
+Thread 15
+Thread 14
+Thread 13
+Thread 12
+Thread 11
+Thread 10
+Thread 9
+Thread 8
+Thread 7
+Thread 6
+Thread 5
+Thread 4
+Thread 3
+Thread 2
+Thread 1
+Thread 0
+Thread 31
+Thread 30
+Thread 29
+Thread 28
+Thread 27
+Thread 26
+Thread 25
+Thread 24
+Thread 23
+Thread 22
+Thread 21
+Thread 20
+Thread 19
+Thread 18
+Thread 17
+Thread 16
+Thread 15
+Thread 14
+Thread 13
+Thread 12
+Thread 11
+Thread 10
+Thread 9
+Thread 8
+Thread 7
+Thread 6
+Thread 5
+Thread 4
+Thread 3
+Thread 2
+Thread 1
+Thread 0
+Thread 31
+Thread 30
+Thread 29
+Thread 28
+Thread 27
+Thread 26
+Thread 25
+Thread 24
+Thread 23
+Thread 22
+Thread 21
+Thread 20
+Thread 19
+Thread 18
+Thread 17
+Thread 16
+Thread 15
+Thread 14
+Thread 13
+Thread 12
+Thread 11
+Thread 10
+Thread 9
+Thread 8
+Thread 7
+Thread 6
+Thread 5
+Thread 4
+Thread 3
+Thread 2
+Thread 1
+Thread 0
+Thread 31
+Thread 30
+Thread 29
+Thread 28
+Thread 27
+Thread 26
+Thread 25
+Thread 24
+Thread 23
+Thread 22
+Thread 21
+Thread 20
+Thread 19
+Thread 18
+Thread 17
+Thread 16
+Thread 15
+Thread 14
+Thread 13
+Thread 12
+Thread 11
+Thread 10
+Thread 9
+Thread 8
+Thread 7
+Thread 6
+Thread 5
+Thread 4
+Thread 3
+Thread 2
+Thread 1
+Thread 0
+Thread 31
+Thread 30
+Thread 29
+Thread 28
+Thread 27
+Thread 26
+Thread 25
+Thread 24
+Thread 23
+Thread 22
+Thread 21
+Thread 20
+Thread 19
+Thread 18
+Thread 17
+Thread 16
+Thread 15
+Thread 14
+Thread 13
+Thread 12
+Thread 11
+Thread 10
+Thread 9
+Thread 8
+Thread 7
+Thread 6
+Thread 5
+Thread 4
+Thread 3
+Thread 2
+Thread 1
+Thread 0
+CV test done
+Operation took 5.301559120 seconds
+OS/161 kernel [? for menu]: ?
+
+OS/161 kernel menu
+    [?o] Operations menu                [1c] Stoplight                      
+    [?t] Tests menu                     [kh] Kernel heap stats              
+    [1a] Cat/mouse with semaphores      [q] Quit and shut down              
+    [1b] Cat/mouse with locks and CVs   
+
+Operation took 0.061897840 seconds
+OS/161 kernel [? for menu]: q
+Shutting down.
+The system is halted.
+sys161: 1041813209 cycles (742414813k, 0u, 299398396i)
+sys161: 366710 irqs 0 exns 0r/0w disk 21r/6475w console 0r/0w/1m emufs 0r/0w net
+sys161: Elapsed real time: 41.627299 seconds (25.0272 mhz)
+sys161: Elapsed virtual time: 41.672528360 seconds (25 mhz)
+bash-4.2$ exit
+exit
+
+Script done on Sat 02 Oct 2021 02:56:11 PM CDT
