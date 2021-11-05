@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ %%%%%%%%%%%%%%%%%%%%% Written Exercise %%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%
+%% OPTION 1 %%
+%%%%%%%%%%%%%%
+
+
+(1) Explain how to avoid starvation in your implementation.
+
+For my implementation, I avoid starvation by increasing the number of resources 
+as well as improve the priority of a waiting process with time allocated for however 
+long an animal is able to spend eating a dish. My goal was to ensure that once an animal 
+has spent a certain amount of time in the kitchen, for the process that's currently waiting 
+on the resources, that waiting time will increase in priority number.
+
+
+
+(2) Comment on your experience of implementing the Cats-and-Mice program. 
+    Can you derive any principles about the use of the lock and condition variable synchronization primitives?
+
+Implementating the Cats-and-Mice program was definitely challenging. I realised I have much studying to do and there's still much to learn about 
+concurrency. Like, I was able to paint a clear visual of how to go about the implementation, but struggled mostly with putting everything together in the end.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
